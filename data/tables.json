@@ -1,0 +1,42 @@
+[
+  {
+    "id": "bot-table",
+    "name": "Bot Table",
+    "subtitle": "Training Ground",
+    "description": "Sharpen your timing and test your knock plays.",
+    "buyIn": 0,
+    "locked": false,
+    "page": "bot-table.html",
+    "theme": "theme-bot"
+  },
+  {
+    "id": "silver-table",
+    "name": "Silver Table",
+    "subtitle": "Coming Soon",
+    "description": "Higher pressure and tighter windows.",
+    "buyIn": 500,
+    "locked": true,
+    "page": "#",
+    "theme": "theme-silver"
+  },
+  {
+    "id": "gold-table",
+    "name": "Gold Table",
+    "subtitle": "Coming Soon",
+    "description": "Bigger swings and harsher punishment.",
+    "buyIn": 2000,
+    "locked": true,
+    "page": "#",
+    "theme": "theme-gold"
+  },
+  {
+    "id": "crown-table",
+    "name": "Crown Table",
+    "subtitle": "Coming Soon",
+    "description": "The highest table. No mercy.",
+    "buyIn": 10000,
+    "locked": true,
+    "page": "#",
+    "theme": "theme-crown"
+  }
+]
