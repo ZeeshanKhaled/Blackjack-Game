@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Table | Blackjack Game</title>
+
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/table.css" />
+  <link rel="stylesheet" href="./css/private-table.css" />
+</head>
+<body class="table-page private-table-page">
+  <div class="table-bg-suits">
+    <span class="table-bg-suit table-bg-suit-spade">♠</span>
+    <span class="table-bg-suit table-bg-suit-heart">♥</span>
+    <span class="table-bg-suit table-bg-suit-diamond">♦</span>
+    <span class="table-bg-suit table-bg-suit-club">♣</span>
+    <span class="table-bg-mark table-bg-mark-a-spade">A♠</span>
+    <span class="table-bg-mark table-bg-mark-k-heart">K♥</span>
+    <span class="table-bg-mark table-bg-mark-q-diamond">Q♦</span>
+    <span class="table-bg-mark table-bg-mark-j-club">J♣</span>
+    <span class="table-bg-suit table-bg-suit-heart-2">♥</span>
+    <span class="table-bg-suit table-bg-suit-spade-2">♠</span>
+  </div>
+
+  <main class="table-shell private-shell">
+    <header class="table-topbar private-topbar">
+      <div class="table-topbar__left">
+        <a href="./index.html" class="back-button">← Back</a>
+
+        <div class="table-title-wrap">
+          <p class="table-kicker">Online Matchmaking</p>
+          <h1>Private Table</h1>
+        </div>
+      </div>
+
+      <div class="private-topbar__pills">
+        <div class="table-pill">
+          <span class="table-pill__label">Mode</span>
+          <span class="table-pill__value">Private Room</span>
+        </div>
+        <div class="table-pill">
+          <span class="table-pill__label">Players</span>
+          <span class="table-pill__value" id="playerCountPill">2 Players</span>
+        </div>
+        <div class="table-pill">
+          <span class="table-pill__label">Status</span>
+          <span class="table-pill__value" id="lobbyStatePill">Idle</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="private-hero panel-surface">
+      <div>
+        <p class="private-hero__label">Invite your people</p>
+        <h2>Create a private table, share a code, and lock in your player count.</h2>
+        <p class="private-hero__text">
+          Host a table for your own group or join someone else’s room with a code.
+          This page gives you the lobby flow and layout now, ready for backend wiring next.
+        </p>
+      </div>
+
+      <div class="private-hero__chips" aria-hidden="true">
+        <span class="private-chip private-chip--red">Host</span>
+        <span class="private-chip private-chip--gold">Code</span>
+        <span class="private-chip private-chip--light">Join</span>
+      </div>
+    </section>
+
+    <section class="private-grid">
+      <article class="private-panel panel-surface">
+        <div class="section-bar section-bar--compact">
+          <div>
+            <p class="section-bar__label">Create a room</p>
+            <h3>Host Table</h3>
+          </div>
+          <p class="section-bar__note">Pick player count first.</p>
+        </div>
+
+        <div class="private-form-block">
+          <label class="private-label" for="hostName">Host Name</label>
+          <input class="private-input" id="hostName" type="text" maxlength="18" placeholder="Enter your name" />
+        </div>
+
+        <div class="private-form-block">
+          <span class="private-label">Players in Room</span>
+          <div class="player-count-options" id="playerCountOptions">
+            <button class="count-option is-selected" type="button" data-count="2">2</button>
+            <button class="count-option" type="button" data-count="3">3</button>
+            <button class="count-option" type="button" data-count="4">4</button>
+          </div>
+        </div>
+
+        <div class="private-action-row">
+          <button class="button-primary" id="hostRoomBtn" type="button">Host Room</button>
+        </div>
+      </article>
+
+      <article class="private-panel panel-surface">
+        <div class="section-bar section-bar--compact">
+          <div>
+            <p class="section-bar__label">Enter a room</p>
+            <h3>Join Table</h3>
+          </div>
+          <p class="section-bar__note">Use the host's room code.</p>
+        </div>
+
+        <div class="private-form-block">
+          <label class="private-label" for="joinName">Player Name</label>
+          <input class="private-input" id="joinName" type="text" maxlength="18" placeholder="Enter your name" />
+        </div>
+
+        <div class="private-form-block">
+          <label class="private-label" for="roomCodeInput">Room Code</label>
+          <input class="private-input private-input--code" id="roomCodeInput" type="text" maxlength="6" placeholder="AB12CD" />
+        </div>
+
+        <div class="private-action-row">
+          <button class="button-secondary" id="joinRoomBtn" type="button">Join Room</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="private-lobby panel-surface" id="lobbyPanel">
+      <div class="section-bar">
+        <div>
+          <p class="section-bar__label">Room staging</p>
+          <h3>Private Lobby</h3>
+        </div>
+        <p class="section-bar__note">Waiting area before the match begins.</p>
+      </div>
+
+      <div class="lobby-meta-grid">
+        <div class="lobby-meta-card">
+          <span class="lobby-meta-card__label">Room Code</span>
+          <div class="lobby-code-row">
+            <strong id="roomCodeDisplay">— — — — — —</strong>
+            <button class="button-ghost" id="copyCodeBtn" type="button">Copy</button>
+          </div>
+        </div>
+
+        <div class="lobby-meta-card">
+          <span class="lobby-meta-card__label">Table Size</span>
+          <strong id="roomPlayerCount">2 Players</strong>
+        </div>
+
+        <div class="lobby-meta-card">
+          <span class="lobby-meta-card__label">Host</span>
+          <strong id="hostNameDisplay">—</strong>
+        </div>
+      </div>
+
+      <div class="lobby-layout-preview">
+        <div>
+          <p class="section-bar__label">Table layout preview</p>
+          <h4 id="layoutPreviewTitle">Heads Up Layout</h4>
+        </div>
+        <p id="layoutPreviewText">Two-seat layout ready for a private match.</p>
+      </div>
+
+      <div class="lobby-slots" id="lobbySlots">
+        <div class="lobby-slot is-filled">
+          <span class="lobby-slot__label">Seat 1</span>
+          <strong id="seat1Name">Waiting...</strong>
+          <span class="lobby-slot__status" id="seat1Status">Empty</span>
+        </div>
+        <div class="lobby-slot">
+          <span class="lobby-slot__label">Seat 2</span>
+          <strong id="seat2Name">Waiting...</strong>
+          <span class="lobby-slot__status" id="seat2Status">Open Slot</span>
+        </div>
+        <div class="lobby-slot lobby-slot--optional is-hidden" id="seat3Wrap">
+          <span class="lobby-slot__label">Seat 3</span>
+          <strong id="seat3Name">Waiting...</strong>
+          <span class="lobby-slot__status" id="seat3Status">Open Slot</span>
+        </div>
+        <div class="lobby-slot lobby-slot--optional is-hidden" id="seat4Wrap">
+          <span class="lobby-slot__label">Seat 4</span>
+          <strong id="seat4Name">Waiting...</strong>
+          <span class="lobby-slot__status" id="seat4Status">Open Slot</span>
+        </div>
+      </div>
+
+      <div class="private-action-row private-action-row--lobby">
+        <button class="button-secondary" id="leaveLobbyBtn" type="button">Leave Lobby</button>
+        <button class="button-primary" id="startPrivateMatchBtn" type="button">Start Match</button>
+      </div>
+
+      <p class="private-footnote" id="privateFootnote">
+        This page is the front-end lobby screen. Backend room syncing still needs wiring.
+      </p>
+    </section>
+  </main>
+
+  <script type="module" src="./js/private-table.js"></script>
+</body>
+</html>

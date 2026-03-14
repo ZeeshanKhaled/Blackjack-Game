@@ -41,3 +41,17 @@
 .theme-crown .table-card__corner-suit {
   color: #93c5fd;
 }
+
+.theme-private {
+  background:
+    radial-gradient(circle at top right, rgba(167, 139, 250, 0.28), transparent 30%),
+    linear-gradient(135deg, rgba(20, 16, 44, 0.98), rgba(76, 29, 149, 0.84));
+  box-shadow:
+    0 20px 42px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(167, 139, 250, 0.12),
+    0 0 32px rgba(139, 92, 246, 0.12);
+}
+
+.theme-private .table-card__corner-suit {
+  color: #c4b5fd;
+}

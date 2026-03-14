@@ -3,6 +3,7 @@ const tableCardTemplate = document.getElementById("tableCardTemplate");
 
 const tableCards = {
   "bot-table": { rank: "A", suit: "♠" },
+  "private-room": { rank: "A", suit: "♦" },
   "silver-table": { rank: "Q", suit: "♥" },
   "gold-table": { rank: "K", suit: "♦" },
   "crown-table": { rank: "J", suit: "♣" }

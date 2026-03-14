@@ -1319,3 +1319,24 @@
     margin-bottom: 0;
   }
 }
+
+
+/* Safe patch: make red suit choice buttons easier to read without affecting layout */
+.choice-modal .suit-choice-btn.red-suit-choice {
+  color: #c1121f;
+  background: linear-gradient(180deg, #fff7f7, #f6dfdf);
+  border-color: rgba(193, 18, 31, 0.28);
+  box-shadow:
+    0 12px 24px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    0 0 0 1px rgba(193, 18, 31, 0.08);
+}
+
+.choice-modal .suit-choice-btn.red-suit-choice:hover {
+  background: linear-gradient(180deg, #fff3f3, #f2d4d4);
+}
+
+.choice-modal .suit-choice-btn.red-suit-choice.is-active {
+  color: #a30f1a;
+  outline: 3px solid rgba(74, 222, 128, 0.45);
+}

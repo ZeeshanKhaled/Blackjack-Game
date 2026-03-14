@@ -10,6 +10,16 @@
     "theme": "theme-bot"
   },
   {
+    "id": "private-table",
+    "name": "Private Room",
+    "subtitle": "Multiplayer",
+    "description": "Host a table, share a code, and play with friends online.",
+    "buyIn": 0,
+    "locked": false,
+    "page": "private-table.html",
+    "theme": "theme-private"
+  },
+  {
     "id": "silver-table",
     "name": "Silver Table",
     "subtitle": "Coming Soon",
