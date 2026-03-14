@@ -1,72 +1,64 @@
-# Private Table server starter
+# Blackjack Game
 
-This is a **starter backend** for your Blackjack app's Private Table feature.
+An arcade-style browser card game with a polished table-select menu, a playable bot table, and an expanding multiplayer setup through the new **Private Table** feature.
 
-It gives you:
-- create room
-- join room by code
-- ready state
-- room lobby sync
-- host-only start button
-- in-memory room storage for local development
+## Live Demo
 
-It does **not** yet sync the actual card game.
+Play it here: [Blackjack Game](https://zeeshankhaled.github.io/Blackjack-Game/)
 
-## Folder placement
+## About the Project
 
-Put the `server` folder anywhere convenient, for example:
+This project is a custom browser card game built with **HTML, CSS, and JavaScript**. It focuses on fast table-based gameplay, stylish UI, and a strong arcade feel rather than a plain card-game layout.
 
-```text
-blackjack game/
-├── server/
-│   ├── package.json
-│   └── server.js
-├── js/
-│   └── private-table.js
-└── private-table.html
-```
+Right now, the project includes:
+- a polished landing page and table selection screen
+- a fully playable **Bot Table** mode
+- a new **Private Table** page that lays the groundwork for online private-room multiplayer
+- custom table themes and visual identity for each table tier
 
-The sample client file can be used as reference for wiring your existing `private-table.js`.
+## Screenshots
 
-## Install and run
+### Home Screen
+![Blackjack Game Home Screen](assets/images/home-screen.png)
 
-From inside the `server` folder:
+### Table Select
+![Blackjack Game Table Select](assets/images/table-select.png)
 
-```bash
-npm install
-npm run dev
-```
+## Current Features
 
-The server runs on:
+- **Bot Table gameplay** for practising timing, sequencing, and pressure-based play
+- **Arcade-inspired menu system** with themed tables and unlock progression
+- **Private Table feature** for future room-based multiplayer
+- **Responsive browser-based interface** with custom visuals and table themes
+- **Modular JavaScript structure** for easier expansion and future multiplayer support
 
-```text
-http://localhost:3000
-```
+## Table Modes
 
-Health check:
+### Bot Table
+The main playable mode right now. This is the training ground where players can learn the game flow, test strategy, and get used to the pressure of the rules.
 
-```text
-http://localhost:3000/health
-```
+### Private Table
+A dedicated multiplayer page designed for private-room matches. The UI is already in place, and the project is being prepared for host/join room functionality.
 
-## Socket events
+### Future Tables
+The menu also includes higher-tier tables such as Silver, Gold, and Crown, which are planned for future updates.
 
-### Client -> server
-- `room:create`
-- `room:join`
-- `room:set-ready`
-- `room:start`
-- `room:leave`
+## Tech Stack
 
-### Server -> client
-- `server:hello`
-- `room:state`
-- `room:started`
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **GitHub Pages** for deployment
 
-## Notes
+## Project Goal
 
-This starter uses **Socket.IO rooms**, which are server-side channels sockets can join and leave, making them a natural fit for private game rooms. citeturn153302search0turn153302search3
+The aim of this project is to turn a custom card-game concept into a polished browser experience with:
+- strong visual identity
+- fun competitive gameplay
+- scalable structure for future multiplayer support
 
-Socket.IO itself is a real-time, bidirectional, event-based library for browser/server communication. citeturn153302search1
+## Play Online
 
-For later scaling across multiple server instances, Socket.IO documents using a different adapter such as the Redis adapter. citeturn153302search6turn153302search13
+You can access the latest public build here:
+
+**https://zeeshankhaled.github.io/Blackjack-Game/**
